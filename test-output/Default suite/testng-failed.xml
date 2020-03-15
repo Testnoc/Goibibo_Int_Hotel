@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)" preserve-order="true">
+    <classes>
+      <class name="Project_Goibibo_Hotel.Goibibo_Int_Hotel.International_Hotel">
+        <methods>
+          <include name="tab_switcher"/>
+          <include name="Icon"/>
+          <include name="Proceed_to_payment"/>
+          <include name="afterClass"/>
+          <include name="customer_details"/>
+          <include name="Book_now_detailspage"/>
+          <include name="Hotel_selction"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- Project_Goibibo_Hotel.Goibibo_Int_Hotel.International_Hotel -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

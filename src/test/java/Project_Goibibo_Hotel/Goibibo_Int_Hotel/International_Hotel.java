@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -11,6 +12,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class International_Hotel {
+	
+	
+
+
 
 	WebDriver driver;
 	
@@ -18,25 +23,27 @@ public class International_Hotel {
 	
 	String hotel_icon = "//i[@class='icon-hotels db blue ico28 lh1-2 padT2 padB3']";
 	
-	String enter_location = "//input[@id='gosuggest_inputL']";
+	String enter_location = "//input[@id='downshift-1-input']";
 	
-	String search_button = "//button[@class='width100 button orange xlarge']";
+	String search_button = "//button[@class='SearchBlockUIstyles__SearchButtonAutoSuggest-fity7j-12 kGmYkx']";
+	
+	String View_Rooms_Detailspage = "//div[@class='TextFieldExpt__Tag-sc-7a7pro-0 gyhFEy']";
 	
 	String book_now_button = "//section[1]//div[1]//div[2]//div[2]//div[3]//button[1]";
 	
-	String book_now_details = "//*[@id=\"BookingWidget\"]/div[6]/div";
+	String book_now_details = "//*[@id=\"rooms\"]/div[2]/div/div[2]/div[1]/div[3]/button";
 	
-	String select_adult_type = "//select[@id='choose']//option[1]";
+	String select_adult_type = "//select[@class='PersonalProfile__NameEnterSelect-sc-1r9ak8b-9 bOfOHT']//option[1]";
 	
-	String name_coulum = "//input[@id='firstname1']";
+	String name_coulum = "//input[@placeholder='Enter First Name']";
 	
-	String lastname_coulum = "//input[@id='lastname1']";
+	String lastname_coulum = "//input[@placeholder='Enter Last Name']";
 	
-	String mail_coulum = "//input[@id='email']";
+	String mail_coulum = "//input[@placeholder='Enter Email Address']";
 	
-	String mobileno_coulum = "//input[@id='mobile']";
+	String mobileno_coulum = "//input[@placeholder='Enter Phone Number']";
 	
-	String payment_button = "//input[@id='makePayment']";
+	String payment_button = "//div[@class='GuestDetailBlock__PayBtnWrapDiv-sc-6dnm3n-10 jFbsRm']";
 	
 	String select_nb = "//div[@id='tab_nb']";
 	
@@ -58,7 +65,7 @@ public class International_Hotel {
 		  
 			driver.findElement(By.xpath(enter_location)).sendKeys("Singapore");
 			
-			driver.findElement(By.id("react-autosuggest-1-suggestion--0")).click();
+			driver.findElement(By.id("downshift-1-item-0")).click();
 			
 	  }
 	  
@@ -77,12 +84,21 @@ public class International_Hotel {
 	  public void Hotel_selction() {
 	  
 		  
-		  driver.findElement(By.xpath("//*[@id=\"srpContainer\"]/div[2]/div[2]/div/div[2]/div/div[4]/div[1]/div/div/section[1]/div[1]/div[2]/div[2]/div[3]")).click();
+		  driver.findElement(By.xpath("//*[@id=\"root\"]/span/div/section[2]/div/div/div[2]/div/div[3]/div[2]/div[2]/div/div[3]/button")).click();
 		  
 		
 	  }
 	  
-
+//	  @Test (priority=3 ,groups = {"Click on first hotel from SRP page"})
+//	  
+//	  public void Book_from_detailspage() {
+//		  
+//		 
+//		  
+//		  driver.findElement(By.xpath(book_now_details)).click();
+//		  
+//		
+//	  }
 	  
 	  @Test (priority=4 ,groups = {"Tab swicth to new window"})
 	  
@@ -99,8 +115,14 @@ public class International_Hotel {
 	  
 	  public void Book_now_detailspage() throws InterruptedException {
 		  
+		  Thread.sleep(3000);
 		  
-		  Thread.sleep(4000);
+//		  driver.findElement(By.xpath("View_Rooms_Detailspage")).click();
+		  
+		  JavascriptExecutor js = (JavascriptExecutor) driver;
+		  js.executeScript("window.scrollBy(0,300)", "");
+		  
+		  Thread.sleep(3000);
 		  
 		  driver.findElement(By.xpath(book_now_details)).click();
 		  
